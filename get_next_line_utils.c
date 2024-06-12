@@ -53,7 +53,7 @@ char	*ft_strcat(char *s1, const char *s2)
 	size_t	len1;
 	size_t	len2;
 	char	*new_str;
-	
+
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	new_str = malloc(len1 + len2 + 1);

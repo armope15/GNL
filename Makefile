@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c get_next_line.c get_next_line_util.c
+SRCS = main.c get_next_line.c get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 NAME = get_next_line
 RM = rm -f

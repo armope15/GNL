@@ -17,14 +17,22 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 1024)
+	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	if (!buffer)
 		buffer = ft_strdup("");
 	buffer = read_buffer(fd, buffer);
 	line = read_line(buffer);
-	clean_buffer(buffer);
-	if(line == NULL){
+	if (line == NULL && *buffer)
+	{
+		line = ft_strdup(buffer);
+		free(buffer);
+		buffer = NULL;
+	}
+	else
+		clean_buffer(buffer);
+	if (line == NULL)
+	{
 		free(buffer);
 		buffer = NULL;
 	}
